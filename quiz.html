@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quiz do Produtor Rural</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="quiz.css">
+    </head>
+
+    <body>
+
+  <header class="topo">
+    <div class="esquerda">
+       <a href="index.html" class="btn-home" aria-label="Voltar para a página inicial">🏠</a>
+      <h1>🌱 Quiz do Produtor Rural</h1>
+    </div>
+  </header> 
+
+ <main class="quiz-container">
+
+  <h2 
+    id="pergunta">Olá, <span id="nome-usuario"></span>! Pronto para testar como você se dá no mundo da agricultura?
+  </h2>
+
+  <p id="frase-etapa" class="frase-etapa"></p>
+
+  <div id="barra-progresso" class="oculto">
+    <div id="progresso"></div>
+  </div>
+
+   <div id="resultado-final"></div>
+
+    <p class="intro-texto">Ao longo deste desafio, você tomará decisões importantes sobre produção, tecnologia, preservação do solo, colheita e distribuição.</p>
+
+    <p class="intro-texto">Cada escolha influenciará diretamente o futuro da sua fazenda. Será que você consegue encontrar o equilíbrio ideal entre produtividade e sustentabilidade?</p>
+
+  <div id="respostas">
+  </div>
+
+  <button id="btn-iniciar">Começar 🎮</button>
+
+  <div id="status" class="oculto"></div>
+
+</main>
+
+  <img src="img/chibi-quiz.png" alt="Mascote de um menino pianista sob uma árvore" class="chibi-quiz">
+  <img src="img/dog-normal.png" id="dog-quiz" alt="Cachorrinho feliz" class="dog-calmo">
+
+  <audio id="musica-fundo" loop>
+   <source src="audio/musica.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="quiz.js" defer></script>
+ </body>
+</html>

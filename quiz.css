@@ -1,0 +1,436 @@
+/* reset e configurações gerais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* corpo do site */
+body {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  color: #134d17;
+  min-height: 100vh;
+}
+
+/* cabeçalho */
+.topo {
+  background: #0f3f12;
+  color: white;
+  padding: 22.5px 5%;
+  box-shadow: 0 4px 15px #00000020;
+}
+
+.topo h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+}
+
+.esquerda {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* botão voltar para home */
+.btn-home {
+  width: 42px;
+  height: 42px;
+  background: #1b5e20;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.btn-home:hover {
+  background: #2e7d32;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 4px 12px #00000025;
+}
+
+/* acessibilidade de foco */
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #66bb6a;
+  outline-offset: 3px;
+}
+
+/* container principal */
+.quiz-container {
+  max-width: 700px;
+  margin: 90px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px #00000020;
+  text-align: center;
+}
+
+/* pergunta */
+#pergunta {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+
+/* frase complementar */
+.frase-etapa {
+  font-size: 1rem;
+  font-style: italic;
+  color: #17311d;
+  margin-bottom: 22px;
+  opacity: 0.9;
+}
+
+/* parágrafo */
+.quiz-container p {
+  margin-bottom: 15px;
+  color: #070606;
+}
+
+.oculto {
+  display: none;
+}
+
+#btn-iniciar.oculto {
+  display: none;
+}
+
+/* pontuação */
+#status {
+  margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+/* barra de progresso */
+#barra-progresso {
+  width: 100%;
+  height: 18px;
+  background: #ebe1e1;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#progresso {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2e7d32, #66bb6a);
+  transition: width 0.5s ease;
+}
+
+/* botões */
+#respostas button,
+#btn-iniciar {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 1rem;
+  cursor: pointer;
+
+  background: #164919;
+  color: white;
+
+  transition: all 0.25s ease;
+}
+
+/* hover */
+#respostas button:hover,
+#btn-iniciar:hover {
+  background: #2e7d32;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px #00000025;
+}
+
+/* clique */
+#respostas button:active {
+  transform: scale(0.97);
+}
+
+/* resultado */
+.resultado {
+  animation: aparecerResultado 0.8s ease;
+}
+
+@keyframes aparecerResultado {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.descricao-resultado {
+    font-size: 20px;
+}
+
+/* botões finais */
+#btn-reiniciar,
+#btn-voltar {
+  display: block;
+  width: 70%;
+  margin: 12px auto;
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  background: #1b5e20;
+  color: white;
+
+  transition: all 0.25s ease;
+}
+
+#btn-reiniciar:hover,
+#btn-voltar:hover {
+  background: #2e7d32;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px #00000025;
+}
+
+/* animações */
+.sumindo {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.25s ease;
+}
+
+.aparecendo {
+  animation: fadeInPergunta 0.35s ease;
+}
+
+@keyframes fadeInPergunta {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* mascote */
+.chibi-quiz {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 230px;
+  height: auto;
+  z-index: 1000;
+  animation: aparecerMascote 1s ease, flutuar 3s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+#dog-quiz {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 170px;
+  height: auto;
+  z-index: 1000;
+  transition: transform 0.2s;
+}
+
+.dog-calmo {
+  animation: dogCalmo 4s ease-in-out infinite;
+}
+
+.dog-feliz {
+  animation: dogFeliz 0.4s ease-in-out infinite;
+}
+
+@keyframes dogCalmo {
+
+  0% {
+    transform: rotate(0deg) translateY(0px);
+  }
+
+  50% {
+    transform: rotate(2deg) translateY(-5px);
+  }
+
+  100% {
+    transform: rotate(0deg) translateY(0px);
+  }
+}
+
+@keyframes dogFeliz {
+
+  0% {
+    transform: rotate(-4deg) scale(1);
+  }
+
+  25% {
+    transform: rotate(4deg) scale(1.05);
+  }
+
+  50% {
+    transform: rotate(-4deg) scale(1.08);
+  }
+
+  75% {
+    transform: rotate(4deg) scale(1.05);
+  }
+
+  100% {
+    transform: rotate(-4deg) scale(1);
+  }
+}
+
+@keyframes aparecerMascote {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateX(0);
+  }
+}
+
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* modo escuro */
+body.dark {
+  background: linear-gradient(135deg, #101010, #1c1c1c);
+  color: #ffffff;
+}
+
+body.dark .topo {
+  background: #131313;
+  box-shadow: 0 4px 15px #00000050;
+}
+
+body.dark .btn-home {
+  background: #2a2a2a;
+}
+
+body.dark .btn-home:hover {
+  background: #3a3a3a;
+}
+
+body.dark .quiz-container {
+  background: #1b1b1b;
+  box-shadow: 0 10px 30px #00000050;
+}
+
+body.dark #pergunta {
+  color: #00cc3d;
+}
+
+body.dark .quiz-container p {
+  color: #e0e0e0;
+}
+
+body.dark #status {
+  color: #ffffff;
+}
+
+body.dark #barra-progresso {
+  background: #333;
+}
+
+body.dark #progresso {
+  background: #33bb51;
+}
+
+body.dark #respostas button,
+body.dark #btn-iniciar,
+body.dark #btn-reiniciar,
+body.dark #btn-voltar {
+  background: #222222;
+  color: #f7f7f7;
+}
+
+body.dark #respostas button:hover,
+body.dark #btn-iniciar:hover,
+body.dark #btn-reiniciar:hover,
+body.dark #btn-voltar:hover {
+  background: #3a3a3a;
+}
+
+/* responsividade */
+@media (max-width: 768px) {
+  .topo {
+    padding: 14px 4%;
+  }
+
+  .topo h1 {
+    font-size: 1.1rem;
+  }
+
+  .esquerda {
+    gap: 10px;
+  }
+
+  .btn-home {
+    width: 34px;
+    height: 34px;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .quiz-container {
+    margin: 35px 15px;
+    padding: 20px;
+  }
+
+  #pergunta {
+    font-size: 1.25rem;
+  }
+
+  #respostas button,
+  #btn-iniciar {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  #btn-reiniciar,
+  #btn-voltar {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .descricao-resultado {
+    font-size: 1rem;
+  }
+
+  .chibi-quiz {
+    width: 120px;
+    bottom: 10px;
+    right: 10px;
+    opacity: 0.9;
+  }
+
+  #dog-quiz {
+  width: 120px;
+  right: 5px;
+  bottom: 5px;
+}
+}

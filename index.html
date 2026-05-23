@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RaizForte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <div id="popup-nome" class="popup">
+    <div class="popup-box">
+      <h2>Qual é o seu nome? 🌱</h2>
+      <input type="text" id="input-nome" placeholder="Digite seu nome..." maxlength="10">
+      <button id="btn-continuar">Continuar</button>
+    </div>
+  </div>
+
+  <div id="intro-animacao" class="intro-animacao">
+    <h1 id="texto-boas-vindas"></h1>
+  </div>
+
+    <div id="popup-feedback" class="popup-feedback oculto">
+      <div class="feedback-box">
+       <button id="fechar-feedback" class="fechar-feedback">✖</button>
+       <h2>Feedback! 💬</h2>
+      <p>Olá, <span id="nome-usuario-feedback"></span>! 🌱</p>
+      <p>O que você achou do projeto RaizForte? Deixe sua opinião ou sugestão para melhorar.</p>
+      <textarea id="campo-feedback" placeholder="Escreva sua opinião ou sugestão..." maxlength="500"></textarea>
+      <button id="enviar-feedback">Enviar 🌾</button>
+      <p id="mensagem-feedback"></p>
+    </div>
+  </div>
+
+  <header class="topo">
+    <div class="esquerda">
+      <img src="img/logo.png" class="logo" alt="Logo RaizForte">
+      <h1>
+        RaizForte - Bem-vindo, <span id="nome-usuario"></span>
+      </h1>
+    </div>
+
+    <div class="direita">
+      <button id="btn-dark"><span class="icone">🌙</span><span class="texto-btn">Modo Noturno</span></button>
+      <button id="btn-feedback"><span class="icone">💬</span><span class="texto-btn">Feedback</span></button>
+      <a href="quiz.html" class="btn-link btn-header"><span class="icone">🎮</span><span class="texto-btn">Quiz</span></a>
+      <button id="btn-musica" aria-label="Alternar música ambiente"><span class="icone-musica">🔇</span></button>
+    </div>  
+  </header>
+
+  <section id="painel-tema" class="painel-tema oculto">
+    <button id="btn-voltar-painel" class="btn-voltar-painel">⬅ Voltar para o início</button>
+    <div id="conteudo-painel" class="conteudo-painel"></div>
+  </section>
+
+  <main>
+    <section class="intro">
+      <div class="intro-conteudo">
+
+        <div class="texto">
+
+          <h2>Raiz forte, futuro consciente</h2>
+
+          <p class="subtitulo">
+            O equilíbrio entre produzir e preservar começa aqui
+          </p>
+
+          <p>
+            O agronegócio desempenha um papel fundamental na sociedade, sendo responsável pela produção de alimentos
+            que chegam diariamente à mesa de milhões de pessoas. No entanto, com o crescimento da produção, surge também
+            a necessidade de preservar os recursos naturais e garantir que o desenvolvimento não comprometa o futuro
+            do meio ambiente.
+
+            Neste contexto, o conceito de sustentabilidade no campo se torna essencial. A adoção de práticas conscientes,
+            o uso equilibrado da tecnologia e o cuidado com o solo e os recursos naturais são fatores que permitem unir
+            produtividade e preservação.
+
+            Este site tem como objetivo apresentar, de forma interativa, como é possível alcançar esse equilíbrio,
+            mostrando que o agro pode ser forte, eficiente e, ao mesmo tempo, responsável com o planeta.
+          </p>
+
+          <div class="menu-temas">
+
+            <button class="temas-btn" id="btn-temas">
+              🔍 Explorar Conteúdos
+            </button>
+
+            <div id="menu" class="opcoes-temas">
+              <button class="tema-item" data-tema="producao">Produção Agrícola</button>
+              <button class="tema-item" data-tema="tecnologia">Tecnologia no Campo</button>
+              <button class="tema-item" data-tema="sustentabilidade">Sustentabilidade</button>
+              <button class="tema-item" data-tema="solo">Solo e Recursos Naturais</button>
+              <button class="tema-item" data-tema="colheita">Colheita e Distribuição</button>
+              <button class="tema-item" data-tema="trabalho">Como começar no Agro</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="imagem-container">
+          <img src="img/agro.jpg" class="intro-imagem" alt="Campo agrícola com uma colheitadeira vermelha trabalhando numa plantação de trigo">
+          <p class="credito">Foto por <a href="https://unsplash.com/photos/Rxt07TbiFCA" target="_blank" rel="noopener noreferrer">Andrew Draper</a></p>
+
+            <div class="info-box">
+
+              <h1> 
+                Você sabia?
+              </h1>
+                
+             <p>
+                O Brasil é um dos únicos países no mundo capaz de colher até três safras no mesmo ano em certas áreas, devido às condições climáticas favoráveis. Essa prática, comum com culturas como soja, milho e feijão, permite rotação de culturas, maior rentabilidade e eficiência no uso de insumos, com a terceira safra já sendo uma realidade.
+             </p>
+
+             <p>
+                Aqui estão outras curiosidades:
+             </p>
+
+             <ul class="curiosidades-lista">
+                  <li>Superpoder do Agro: A produção agrícola brasileira alimenta cerca de 1 bilhão de pessoas no mundo anualmente.</li>
+                  <li>Laranja Brasileira: O Brasil é responsável por mais de 70% das exportações mundiais de suco de laranja.</li>
+                  <li>Rebanho Gigante: Existem mais bois do que pessoas no Brasil, totalizando um rebanho de mais de 230 milhões de cabeças.</li>
+                  <li>Agricultura Familiar: Apesar da força do agronegócio, a agricultura familiar gera cerca de 77% dos empregos no setor agrícola no Brasil.</li>
+                  <li>Cultura Espacial: Pesquisas indicam que tubérculos como a batata-doce e a mandioca podem ser cultivados em Marte.</li>
+             </ul>
+            </div>
+
+            <p class="preview-quiz">
+               Quer saber se você tem o que é preciso para ser um produtor rural sustentável?
+              🎮 Teste suas decisões no campo e descubra qual tipo de produtor você seria no quiz acima!
+            </p>
+       </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+  <div class="footer-conteudo">
+
+    <div class="footer-info">
+      <h2>🌱 RaizForte</h2>
+
+      <p>
+        Projeto desenvolvido para o Agrinho 2026 com foco em
+        sustentabilidade, tecnologia e futuro do agronegócio.
+      </p>
+
+      <p class="footer-frase">
+        “Produzir hoje pensando no amanhã.”
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <h3>Contato</h3>
+
+      <a href="https://instagram.com/godoy_hnqx" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-instagram"></i> @godoy_hnqx
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-direitos">
+    Copyright © 2026 RaizForte  •  Desenvolvido por Henrique Godoy
+  </div>
+ </footer>
+
+   <div class="folhas-container" id="folhas-container"></div>
+
+   <audio id="musica-fundo" loop>
+    <source src="audio/musica.mp3" type="audio/mpeg">
+   </audio>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
