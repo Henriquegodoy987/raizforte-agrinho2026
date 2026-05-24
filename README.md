@@ -192,6 +192,30 @@ Todos os mascotes foram gerados utilizando o ChatGPT.
 
 ---
 
+## 🐶 Cachorrinho final da página Quiz (versão "Guardião da Natureza" e "Inovador Verde")
+
+> "agora preciso q vc crie uma imagem igual essa ultima, so q ele com uma mudinha nas patas"
+
+---
+
+## 🐶 Cachorrinho final da página Quiz (versão "Mestre da Tecnologia" e "Magnata Tecnológico")
+
+> "perfeito, agora troque a mudinha por um drone"
+
+---
+
+## 🐶 Cachorrinho final da página Quiz (versão "Império da Produção" e "Produtor Consciente")
+
+> "otimo, agora troque o drone por uma colheitadeira"
+
+---
+
+## 🐶 Cachorrinho final da página Quiz (versão "Equilíbrio Perfeito")
+
+> "agora faça ele com uma coroa na cabeça, em cima de um drone com a mudinha nas patas"
+
+---
+
 # 📸 Créditos de Imagens
 
 ## 🏠 Página Principal
