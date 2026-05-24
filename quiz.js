@@ -21,6 +21,24 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("btn-iniciar").addEventListener("click", iniciarQuiz);
     document.querySelector(".quiz-container").classList.add("aparecendo");
     
+    document.getElementById("btn-conquistas").addEventListener("click",()=>{
+    atualizarConquistas();
+    document.getElementById("popup-conquistas").classList.remove("oculto");
+    document.getElementById("overlay-conquistas").classList.remove("oculto");
+});
+
+    document.getElementById("fechar-conquistas").addEventListener("click",()=>{
+    document.getElementById("popup-conquistas").classList.add("oculto");
+    document.getElementById("overlay-conquistas").classList.add("oculto");
+
+});
+    
+    document.getElementById("overlay-conquistas").addEventListener("click",()=>{
+    document.getElementById("popup-conquistas").classList.add("oculto");
+    document.getElementById("overlay-conquistas").classList.add("oculto");
+
+});
+
     // música de fundo
     const musica = document.getElementById("musica-fundo");
 
@@ -50,28 +68,128 @@ setInterval(() => {
 }, 1000);
 });
 
+const CONQUISTAS = {
+
+"👑 Equilíbrio Perfeito":
+"Equilíbrio Supremo",
+
+"🏆 Produtor Consciente":
+"Produtor Consciente",
+
+"🏆 Inovador Verde":
+"Inovador Verde",
+
+"🏆 Magnata Tecnológico":
+"Magnata Tecnológico",
+
+"🌱 Guardião da Natureza":
+"Guardião da Natureza",
+
+"📈 Império da Produção":
+"Império da Produção",
+
+"🤖 Mestre da Tecnologia":
+"Mestre da Tecnologia"
+
+};
+
+function desbloquearConquista(titulo){
+
+let medalhas =
+JSON.parse(
+localStorage.getItem("medalhas")
+) || [];
+
+if(!medalhas.includes(titulo)){
+  medalhas.push(titulo);
+  localStorage.setItem("medalhas",JSON.stringify(medalhas)
+); mostrarPopupConquista(titulo);
+ }
+}
+
+function mostrarPopupConquista(titulo){
+
+const popup =
+document.createElement("div");
+popup.className =
+"popup-nova-conquista";
+popup.innerHTML = `
+🏆 NOVA CONQUISTA
+<br><br>
+${CONQUISTAS[titulo]}
+`;
+document.body.appendChild(popup);
+
+setTimeout(()=>{
+popup.classList.add("sumir");
+setTimeout(()=>{
+popup.remove();
+},1000);
+},2500);
+}
+
+function atualizarConquistas(){
+const lista =
+document.getElementById(
+  "lista-conquistas"
+);
+
+const desbloqueadas =
+JSON.parse(
+localStorage.getItem("medalhas")
+) || [];
+
+lista.innerHTML = "";
+Object.entries(CONQUISTAS)
+.forEach(([finalNome,titulo])=>{
+const ganhou =
+desbloqueadas.includes(finalNome);
+
+lista.innerHTML += `
+
+<div class="medalha
+${ganhou ? "ativa":"bloqueada"}">🏅<br>
+${titulo}
+</div>
+`;
+});
+}
+
 const dog = document.getElementById("dog-quiz");
 
 function cachorroFeliz() {
+  if (resultadoMostrado) return;
 
   dog.src = "img/dog-feliz.png";
-
-  dog.classList.remove("dog-calmo");
-
+  dog.classList.remove("dog-calmo", "dog-resultado");
   dog.classList.add("dog-feliz");
 
   setTimeout(() => {
+    if (!resultadoMostrado) {
+      dog.src = "img/dog-normal.png";
+      dog.classList.remove("dog-feliz", "dog-resultado");
+      dog.classList.add("dog-calmo");
+    }
+  }, 1000);
+}
 
-  if (!resultadoMostrado) {
+function definirCachorroResultado(titulo) {
+  let imagemFinal = "img/dog-normal.png";
 
-    dog.src = "img/dog-normal.png";
-
-    dog.classList.remove("dog-feliz");
-
-    dog.classList.add("dog-calmo");
+  if (titulo === "👑 Equilíbrio Perfeito") {
+    imagemFinal = "img/dog-equilibrio.png";
+  } else if (titulo === "🌱 Guardião da Natureza" || titulo === "🏆 Inovador Verde") {
+    imagemFinal = "img/dog-sustentabilidade.png";
+  } else if (titulo === "🤖 Mestre da Tecnologia" || titulo === "🏆 Magnata Tecnológico") {
+    imagemFinal = "img/dog-tech.png";
+  } else if (titulo === "📈 Império da Produção" || titulo === "🏆 Produtor Consciente") {
+    imagemFinal = "img/dog-producao.png";
   }
 
-}, 1000);
+  dog.src = imagemFinal;
+  dog.classList.remove("dog-calmo", "dog-feliz", "dog-resultado");
+  void dog.offsetWidth;
+  dog.classList.add("dog-resultado");
 }
 
 function iniciarQuiz() {
@@ -80,6 +198,10 @@ function iniciarQuiz() {
   SUS = 5;
   PROD = 5;
   TEC = 5;
+
+  dog.src = "img/dog-normal.png";
+  dog.classList.remove("dog-feliz", "dog-resultado");
+  dog.classList.add("dog-calmo");
 
   // ocultar os parágrafos introdutórios
   const paragrafos = document.querySelectorAll('.intro-texto');
@@ -93,11 +215,44 @@ function iniciarQuiz() {
   carregarPergunta();
 }
 
+function atualizarFundo() {
+
+document.body.classList.remove(
+"fundo-producao",
+"fundo-tecnologia",
+"fundo-solo",
+"fundo-colheita",
+"fundo-distribuicao"
+);
+
+if(etapa === 0){
+document.body.classList.add("fundo-producao");
+}
+
+else if(etapa === 1){
+document.body.classList.add("fundo-tecnologia");
+}
+
+else if(etapa === 2){
+document.body.classList.add("fundo-solo");
+}
+
+else if(etapa === 3){
+document.body.classList.add("fundo-colheita");
+}
+
+else if(etapa === 4){
+document.body.classList.add("fundo-distribuicao");
+}
+}
+
+
 function carregarPergunta() {
   const pergunta = document.getElementById("pergunta");
   const respostas = document.getElementById("respostas");
   const frase = document.getElementById("frase-etapa");
   const progresso = document.getElementById("progresso");
+  atualizarFundo();
 
   progresso.style.width = `${etapa * 20}%`;
   respostas.innerHTML = ""; // limpa os botões
@@ -338,8 +493,8 @@ resultadoFinal.innerHTML = `
 `;
 
 resultadoMostrado = true;
-dog.classList.remove("dog-calmo");
-dog.classList.add("dog-feliz");
+desbloquearConquista(titulo);
+definirCachorroResultado(titulo);
 
 document.getElementById('btn-reiniciar').addEventListener('click', iniciarQuiz);
 

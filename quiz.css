@@ -14,11 +14,14 @@ body {
 }
 
 /* cabeçalho */
-.topo {
-  background: #0f3f12;
-  color: white;
-  padding: 22.5px 5%;
-  box-shadow: 0 4px 15px #00000020;
+.topo{
+background:#0f3f12;
+color:white;
+padding:22px 5%;
+box-shadow:0 4px 15px #00000020;
+display:flex;
+justify-content:space-between;
+align-items:center;
 }
 
 .topo h1 {
@@ -228,6 +231,155 @@ a:focus-visible {
   }
 }
 
+/* conquistas */
+#btn-conquistas{
+width:58px;
+height:58px;
+border:none;
+border-radius:50%;
+font-size:28px;
+background:#f4c542;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 4px 14px #00000030;
+}
+
+#btn-conquistas:hover{
+transform:scale(1.08);
+box-shadow:0 0 20px gold;
+}
+
+.popup-nova-conquista{
+position:fixed;
+top:50%;
+left:50%;
+transform: translate(-50%,-50%);
+background:linear-gradient(145deg,#fff9df,#ffe48d);
+color: #4d3300;
+padding:30px;
+border-radius:20px;
+font-size:1.5rem;
+font-weight:bold;
+box-shadow:
+0 0 20px gold,
+0 0 50px #ffd700,
+0 0 80px #ffec80;
+animation: cinema 0.7s ease;
+z-index:9999;
+}
+
+@keyframes cinema{
+
+0%{
+  opacity:0;
+  transform: translate(-50%,-50%) scale(0.5);
+}
+
+70%{
+  transform: translate(-50%,-50%) scale(1.15);
+}
+
+100%{ 
+  opacity:1; 
+  transform: translate(-50%,-50%) scale(1);
+}
+}
+
+.medalha{
+padding:15px;
+margin:10px;
+border-radius:14px;
+font-weight:bold;
+}
+
+.bloqueada{
+filter:grayscale(100%) blur(1px);
+transform:scale(0.95);
+opacity:0.35;
+}
+
+.ativa{
+background:#fff6cf;
+box-shadow: 0 0 18px gold;
+}
+
+.popup-conquistas{
+position:fixed;
+top:55%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:25px;
+border-radius:18px;
+width:320px;
+max-height:70vh;
+overflow-y:auto;
+z-index:9000;
+}
+
+.popup-conquistas h2{
+color:#1b5e20;
+margin-bottom:15px;
+}
+
+.popup-conquistas .medalha{
+color:#222;
+
+}
+
+.overlay{
+position:fixed;
+inset:0;
+background:#00000080;
+backdrop-filter:blur(5px);
+z-index:8500;
+animation:fosco .25s ease;
+}
+
+@keyframes fosco{
+
+ from{
+    opacity:0;
+}
+
+ to{ 
+    opacity:1;
+}
+}
+
+.sumir{
+animation: sumirConquista 1s ease forwards;
+}
+
+@keyframes sumirConquista{
+
+0%{
+opacity:1;
+transform:translate(-50%,-50%) scale(1);
+}
+
+100%{
+opacity:0;
+transform:translate(-50%,-50%) scale(0.7);
+}
+
+}
+
+#fechar-conquistas{
+margin-top:15px;
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:#1b5e20;
+color:white;
+cursor:pointer;
+font-weight:bold;
+}
+
+#fechar-conquistas:hover{
+background:#2e7d32;
+}
+
 /* mascote */
 .chibi-quiz {
   position: fixed;
@@ -244,10 +396,12 @@ a:focus-visible {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 170px;
+  width: 190px;
   height: auto;
   z-index: 1000;
-  transition: transform 0.2s;
+  transition: transform 0.2s, opacity 0.2s;
+  transform-origin: center bottom;
+  pointer-events: none;
 }
 
 .dog-calmo {
@@ -256,6 +410,10 @@ a:focus-visible {
 
 .dog-feliz {
   animation: dogFeliz 0.4s ease-in-out infinite;
+}
+
+.dog-resultado {
+  animation: dogResultado 1.2s ease-in-out infinite;
 }
 
 @keyframes dogCalmo {
@@ -296,6 +454,15 @@ a:focus-visible {
   }
 }
 
+@keyframes dogResultado {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg) scale(1.05);
+  }
+}
+
 @keyframes aparecerMascote {
   from {
     opacity: 0;
@@ -316,9 +483,85 @@ a:focus-visible {
   }
 }
 
+/* fundos */
+.fundo-producao {
+background:
+radial-gradient(
+circle at top left,
+#53db5a 0%,
+#ffffff00 60%
+),
+linear-gradient(
+135deg,
+#f4fff5 0%,
+#84ec89 50%,
+#2e7d32 100%
+);
+}
+
+.fundo-tecnologia {
+background:
+radial-gradient(
+circle at top right,
+#42a5f5 0%,
+#ffffff00 60%
+),
+linear-gradient(
+135deg,
+#eefcff 0%,
+#7bc6e9 50%,
+#1976d2 100%
+);
+}
+
+.fundo-solo {
+background:
+radial-gradient(
+circle at bottom left,
+#8d6e63 0%,
+#ffffff00 60%
+),
+linear-gradient(
+135deg,
+#f5e6cc 0%,
+#ad8d63 50%,
+#6d4c41 100%
+);
+}
+
+.fundo-colheita {
+background:
+radial-gradient(
+circle,
+#ffeb3b 0%,
+#ffffff00 60%
+),
+linear-gradient(
+135deg,
+#fff8d6 0%,
+#ffd54f 50%,
+#ff9800 100%
+);
+}
+
+.fundo-distribuicao {
+background:
+radial-gradient(
+circle at right,
+#ba68c8 0%,
+#ffffff00 60%
+),
+linear-gradient(
+135deg,
+#f4ecff 0%,
+#bea7e7 50%,
+#7e57c2 100%
+);
+}
+
 /* modo escuro */
 body.dark {
-  background: linear-gradient(135deg, #101010, #1c1c1c);
+  background:#0f0f0f;
   color: #ffffff;
 }
 
@@ -373,6 +616,59 @@ body.dark #btn-iniciar:hover,
 body.dark #btn-reiniciar:hover,
 body.dark #btn-voltar:hover {
   background: #3a3a3a;
+}
+
+body.dark .popup-conquistas{
+background:#1b1b1b;
+color:#f2f2f2;
+box-shadow:0 0 30px #00000090;
+}
+
+body.dark .popup-conquistas h2{
+color:#7cff7c;
+}
+
+body.dark .medalha{
+color:#f5f5f5;
+}
+
+body.dark .medalha.ativa{
+background:#ffe082;
+color:#2b1b00;
+box-shadow:0 0 18px gold;
+}
+
+body.dark .medalha.bloqueada{
+color:#aaaaaa;
+}
+
+body.dark .popup-conquistas .medalha{
+color:#4d3300;
+}
+
+body.dark .popup-nova-conquista{
+background:linear-gradient(145deg,#3a2d00,#5f4600);
+color:#ffe082;
+}
+
+body.dark.fundo-producao{
+background:linear-gradient(135deg,#122414,#245029);
+}
+
+body.dark.fundo-tecnologia{
+background:linear-gradient(135deg,#102030,#18486d);
+}
+
+body.dark.fundo-solo{
+background:linear-gradient(135deg,#2b2018,#5b4533);
+}
+
+body.dark.fundo-colheita{
+background:linear-gradient(135deg,#3d3000,#755500);
+}
+
+body.dark.fundo-distribuicao{
+background:linear-gradient(135deg,#241529,#55336d);
 }
 
 /* responsividade */
@@ -432,5 +728,11 @@ body.dark #btn-voltar:hover {
   width: 120px;
   right: 5px;
   bottom: 5px;
+}
+
+#btn-conquistas{
+width:48px;
+height:48px;
+font-size:22px;
 }
 }
