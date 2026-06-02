@@ -216,6 +216,40 @@ Todos os mascotes foram gerados utilizando o ChatGPT.
 
 ---
 
+## 🚜 Fazendas dos Resultados do Quiz
+
+Todas as fazendas dos finais do quiz foram geradas utilizando o ChatGPT.
+
+### 👑 Equilíbrio Perfeito
+
+> "Crie uma mini fazenda equilibrada em visão isométrica, com plantações saudáveis, tratores modernos, áreas verdes preservadas, painéis solares, drones agrícolas e infraestrutura sustentável. Estilo cartoon profissional, fundo transparente, sem texto."
+
+### 🌱 Guardião da Natureza
+
+> "Crie uma mini fazenda focada em sustentabilidade em visão isométrica, com muitas árvores, áreas de preservação ambiental, energia renovável, agricultura ecológica e pouca mecanização pesada. Estilo cartoon profissional, fundo transparente, sem texto."
+
+### 🤖 Mestre da Tecnologia
+
+> "Crie uma mini fazenda altamente tecnológica em visão isométrica, com drones agrícolas, sensores digitais, máquinas autônomas, centro tecnológico moderno e agricultura de precisão. Estilo cartoon profissional, fundo transparente, sem texto."
+
+### 📈 Império da Produção
+
+> "Crie uma mini fazenda focada em produção agrícola em visão isométrica, com enormes plantações, vários tratores, grandes silos, galpões agrícolas e colheitas abundantes. Pouca vegetação decorativa. Estilo cartoon profissional, fundo transparente, sem texto."
+
+### 🏆 Produtor Consciente
+
+> "Crie uma mini fazenda em visão isométrica equilibrando produção agrícola e sustentabilidade, com boas áreas de cultivo, preservação ambiental, tratores modernos e manejo responsável dos recursos naturais. Estilo cartoon profissional, fundo transparente, sem texto."
+
+### 🏆 Inovador Verde
+
+> "Crie uma mini fazenda sustentável e tecnológica em visão isométrica, com drones agrícolas, energia solar, áreas verdes preservadas, irrigação inteligente e agricultura moderna. Estilo cartoon profissional, fundo transparente, sem texto."
+
+### 🏆 Magnata Tecnológico
+
+> "Crie uma mini fazenda altamente produtiva e tecnológica em visão isométrica, com grandes colheitadeiras, tratores autônomos, silos modernos, centro de controle digital e agricultura de precisão. Estilo cartoon profissional, fundo transparente, sem texto."
+
+---
+
 # 📸 Créditos de Imagens
 
 ## 🏠 Página Principal

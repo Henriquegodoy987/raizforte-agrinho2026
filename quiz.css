@@ -181,6 +181,14 @@ a:focus-visible {
     font-size: 20px;
 }
 
+.titulo-resultado{
+font-size:2.3rem;
+font-weight:900;
+margin-bottom:25px;
+color:#1b5e20;
+text-shadow:0 3px 10px #00000020;
+}
+
 /* botões finais */
 #btn-reiniciar,
 #btn-voltar {
@@ -378,6 +386,22 @@ font-weight:bold;
 
 #fechar-conquistas:hover{
 background:#2e7d32;
+}
+
+/* fazenda final*/
+.imagem-final{
+width:100%;
+max-width:350px;
+height:auto;
+margin:20px auto;
+display:block;
+border-radius:16px;
+box-shadow:0 8px 25px #00000030;
+transition:.3s;
+}
+
+.imagem-final:hover{
+transform:scale(1.02);
 }
 
 /* mascote */
@@ -669,6 +693,10 @@ background:linear-gradient(135deg,#3d3000,#755500);
 
 body.dark.fundo-distribuicao{
 background:linear-gradient(135deg,#241529,#55336d);
+}
+
+body.dark .titulo-resultado{
+color:#a4ffa4;
 }
 
 /* responsividade */

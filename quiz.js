@@ -408,6 +408,7 @@ function mostrarResultado() {
 
   let titulo = "";
   let descricao = "";
+  let imagemFinal = "";
   
 // diferenças
 const difSP = Math.abs(SUS - PROD);
@@ -418,6 +419,7 @@ const difPT = Math.abs(PROD - TEC);
 if (SUS === PROD && PROD === TEC) {
   titulo = "👑 Equilíbrio Perfeito";
   descricao = "Parabéns! Você conseguiu alcançar o equilíbrio ideal entre produção, tecnologia e sustentabilidade. Esse é o modelo mais completo e representa o verdadeiro futuro sustentável do agro.";
+  imagemFinal = "img/fazenda-equilibrio.png";
 }
 
 // SUS + PROD
@@ -428,6 +430,7 @@ else if (
 ) {
   titulo = "🏆 Produtor Consciente";
   descricao = "Você equilibrou sustentabilidade e produção de forma eficiente. Seu modelo busca produtividade sem abandonar a responsabilidade ambiental.";
+  imagemFinal = "img/fazenda-produtor.png";
 }
 
 // SUS + TEC
@@ -438,6 +441,7 @@ else if (
 ) {
   titulo = "🏆 Inovador Verde";
   descricao = "Você combinou tecnologia e sustentabilidade para criar uma fazenda moderna e consciente. Seu único desafio é ampliar a produção.";
+  imagemFinal = "img/fazenda-inovador.png";
 }
 
 // PROD + TEC
@@ -448,6 +452,7 @@ else if (
 ) {
   titulo = "🏆 Magnata Tecnológico";
   descricao = "Você focou em produtividade e inovação, construindo um modelo eficiente e altamente tecnológico. Porém, a sustentabilidade acabou ficando em segundo plano.";
+  imagemFinal = "img/fazenda-magnata.png";
 }
 
 // SUS dominante
@@ -457,6 +462,7 @@ else if (
 ) {
   titulo = "🌱 Guardião da Natureza";
   descricao = "Você priorizou a preservação ambiental e construiu uma fazenda consciente. Seu foco ecológico é admirável, mas ainda há espaço para crescer em inovação e produtividade.";
+  imagemFinal = "img/fazenda-natureza.png";
 }
 
 // PROD dominante
@@ -466,6 +472,7 @@ else if (
 ) {
   titulo = "📈 Império da Produção";
   descricao = "Você buscou máxima produtividade e alto rendimento. Sua fazenda produz muito, mas talvez precise equilibrar melhor os impactos ambientais.";
+  imagemFinal = "img/fazenda-imperio.png";
 }
 
 // TEC dominante
@@ -475,20 +482,21 @@ else if (
 ) {
   titulo = "🤖 Mestre da Tecnologia";
   descricao = "Você apostou fortemente na inovação e nas tecnologias agrícolas. Seu modelo é moderno e eficiente, mas pode se beneficiar de maior equilíbrio sustentável.";
+  imagemFinal = "img/fazenda-tecnologia.png";
 }
 
 pergunta.textContent = "";
 resultadoFinal.innerHTML = `
 <div class="resultado">
-  ${titulo}<br><br>
-  <span class="descricao-resultado">${descricao}</span>
-  <br><br>
-  🌱 Sustentabilidade: ${SUS}<br>
-  📈 Produção: ${PROD}<br>
-  🤖 Tecnologia: ${TEC}
-  <br><br>
-  <button id="btn-reiniciar">Jogar Novamente 🔄</button>
-  <button id="btn-voltar" class="voltar-btn">🏠 Voltar</button>
+<h2 class="titulo-resultado">${titulo}</h2>
+<span class="descricao-resultado">${descricao}</span>
+<img src="${imagemFinal}" class="imagem-final" alt="Fazenda do resultado">
+<br>
+🌱 Sustentabilidade: ${SUS}<br>
+📈 Produção: ${PROD}<br>
+🤖 Tecnologia: ${TEC}<br><br>
+<button id="btn-reiniciar">Jogar Novamente 🔄</button>
+<button id="btn-voltar" class="voltar-btn">🏠 Voltar</button>
 </div>
 `;
 
